@@ -4,7 +4,7 @@ import FollowingCard from './FollowingCard';
 import './App.css';
 
 class App extends React.Component {
-  
+
   state = {
     user: [],
     followers: [],
@@ -52,23 +52,21 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="card">
-          <header>
-            <h1>Github User Cards</h1>
-          </header>
-          <div className="user">
-            <img src={this.state.user.avatar_url} alt="user img" />
-            <h1>{this.state.user.name}</h1>
-            <h2>Username: {this.state.user.login}</h2>
-          </div>
-          {/* <FollowingCard following={this.following} /> */}
-          {this.state.followers.map(item => (
-            <FollowingCard following={item} key={item.id} />
-          ))}
-          {this.state.following.map(item => (
-            <FollowingCard following={item} key={item.id} />
-          ))}
-        </div>        
+        <header className="headline">
+          <h1>Github User Cards</h1>
+        </header>
+        <div className="user">
+          <img src={this.state.user.avatar_url} alt="user img" />
+          <h1>{this.state.user.name}</h1>
+          <h2>Username: {this.state.user.login}</h2>
+        </div>
+        {/* <FollowingCard following={this.following} /> */}
+        {this.state.followers.map(item => (
+          <FollowingCard following={item} key={item.id} />
+        ))}
+        {this.state.following.map(item => (
+          <FollowingCard following={item} key={item.id} />
+        ))}
       </div>
     );
   }
